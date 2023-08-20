@@ -1,4 +1,11 @@
-import { createApp } from 'vue'
-import App from './App.vue'
-
-createApp(App).mount('#app')
+import { createApp } from "vue";
+import App from "./App.vue";
+import store from "./store";
+import AppAxios from "@/utils/AppAxios";
+import "./assets/styles.css";
+import searchIcon from "./assets/search.svg";
+const app = createApp(App);
+app.config.globalProperties.$AppAxios = AppAxios;
+app.use(store);
+app.component("search-icon", searchIcon);
+app.mount("#app");
